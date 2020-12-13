@@ -1,1 +1,2 @@
-# mood_hackathon
+# mood
+Mental health self-monitor

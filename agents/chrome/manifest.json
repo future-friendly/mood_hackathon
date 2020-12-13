@@ -1,0 +1,40 @@
+{
+    "name": "Mood Monitoring agent",
+    "version": "0.1",
+    "manifest_version": 2,
+
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab"
+    ],
+
+    "browser_action": {
+        "default_title": "Mood Monitoring agent",
+        "default_popup": "src/index.html",
+        "default_icon": {
+            "16": "src/img/icon.png",
+            "24": "src/img/icon.png",
+            "32": "src/img/icon.png"
+        }
+    },
+
+    "background": {
+        "scripts": [
+            "src/js/background.js",
+            "src/js/axios.min.js"
+        ],
+        "persistent": true
+    },
+
+    "content_scripts": [
+        {
+          "matches": [
+            "<all_urls>"
+          ],
+          "js": [
+            "src/js/inject.js"
+          ]
+        }
+      ]
+}

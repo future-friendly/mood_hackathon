@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_PASSWORD: dbpassword
+      POSTGRES_DB: mood
+    ports:
+      - 5432:5432
+  backend:
+    build:
+      context: backend/
+    depends_on: [postgres]
+  analytics:
+    build:
+      context: analytics/
+  dashboard:
+    build:
+      context: dashboard/
+  router:
+    build:
+      context: router/
+    depends_on: [backend,analytics,dashboard]
+    volumes:
+      - ~/certs:/certs
+    ports:
+      - 80:80
+      - 443:443

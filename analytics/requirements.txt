@@ -1,0 +1,8 @@
+aiohttp[speedups]
+bs4
+lxml
+nltk
+summa
+pandas
+pymongo
+requests
